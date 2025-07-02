@@ -10,7 +10,6 @@ This utility allows you to decrypt, edit, and re-encrypt save files for CloverPi
 - Decrypt CloverPit's GameDataDemo.json files
 - Edit save data in plain JSON format
 - Re-encrypt modified saves for game compatibility
-- Simple drag-and-drop operation
 - No installation required
 
 ## Prerequisites
@@ -22,7 +21,7 @@ This utility allows you to decrypt, edit, and re-encrypt save files for CloverPi
 ### Step 1: Locate Save File
 1. Navigate to CloverPit's save directory:
 ```bash
-C:\Program Files (x86)\Steam\steamapps\common\CloverPit Demo\SaveData\GameData
+...\Program Files (x86)\Steam\steamapps\common\CloverPit Demo\SaveData\GameData
 ```
 2. Copy `GameDataDemo.json` to the directory where you have `DecryptSaveCloverPit.exe`
 
@@ -31,12 +30,12 @@ C:\Program Files (x86)\Steam\steamapps\common\CloverPit Demo\SaveData\GameData
 2. Edit the decrypted `GameDataDemo.json` using any text editor:
 ```json
 {
-  "currentLevel": 5,  // Change level progress
-  "coins": 1500,      // Modify currency
-  "unlockedItems": [  // Customize unlocks
-    "item1",
-    "item3"
-  ]
+    "myGameDataIndex": 0,
+    "dataOpenedTimes": 23,
+    "lastGameVersionThatSavedMe": "0.3.6",
+    "gameplayDataHasSession": true,
+    "gameplayData": {
+    }
 }
 ```
 
@@ -48,7 +47,7 @@ C:\Program Files (x86)\Steam\steamapps\common\CloverPit Demo\SaveData\GameData
 ## Building from Source
 1. Clone repository:
 ```bash
-git clone https://github.com/YourUsername/DecryptSave-CloverPit.git
+git clone https://github.com/Mikhaelo/DecryptSave-CloverPit.git
 ```
 2. Open `DecryptSaveCloverPit.sln` in Visual Studio 2022
 3. Build solution (Output: `bin/Release/DecryptSaveCloverPit.exe`)
@@ -71,37 +70,8 @@ git clone https://github.com/YourUsername/DecryptSave-CloverPit.git
 - **No changes applied:** Verify re-encryption step completed
 - **Game crashes:** Validate game files through Steam
 
-## Video Demonstration
-[![DecryptSave-CloverPit Tutorial](https://img.youtube.com/vi/VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_HERE)
-
-*Replace VIDEO_ID_HERE with your actual YouTube ID*
-
-## FAQ
-**Q: Can I unlock achievements with this?**  
-A: While possible, achievement data uses a different encryption key not implemented in this version.
-
-**Q: Will this work with the full game?**  
-A: The utility is designed for the demo version. Full game support may require adjustments.
-
-**Q: How to reset to default save?**  
-A: Delete GameDataDemo.json - the game will generate a new one.
-
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 > **Disclaimer:** This tool is not affiliated with or endorsed by the CloverPit developers. Use at your own risk. Modifying save files may violate the game's EULA.
-
-## Embedding Video in README.md
-To add a video to your README:
-1. Upload your video to YouTube or other video platform
-2. Use this markdown format:
-```markdown
-[![Alt Text](https://img.youtube.com/vi/YOUTUBE_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_ID)
-```
-Replace `YOUTUBE_ID` with your video's ID (e.g., `dQw4w9WgXcQ`)
-
-For GitHub-rehosted videos (MP4 format supported):
-```markdown
-<video src="demo.mp4" width="640" height="480" controls preload></video>
-```
